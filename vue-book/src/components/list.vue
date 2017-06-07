@@ -12,7 +12,7 @@
                 <!-- 面板底部 -->
                 <div class="panel-footer">
                     价格：<span>{{book.price}}</span>
-                    <router-link :to="{name: 'detail', params:this.params}">详情</router-link>
+                    <router-link :to="{name: 'detail', params:{id: book.id}}">详情</router-link>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
 <script>
     export default {
         data() {
-           return {books: null, param: {id:123}}
+           return {books: null}
         },
         beforeMount() { // 在list组件挂载前 获取图书列表初始数据
             this.$http.get('/books').then(res => {
